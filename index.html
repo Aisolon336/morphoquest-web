@@ -5,38 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="manifest.json">
   <title>MorphoQuest Web</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 2em;
-      background-color: #f0f0f0;
-    }
-    button {
-      margin: 0.5em;
-      padding: 0.5em 1em;
-      font-size: 1em;
-      border: none;
-      background-color: #007bff;
-      color: white;
-      border-radius: 5px;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
 </head>
 <body>
-  <h1>🧠 MorphoQuest</h1>
+  <h1 id="title">🧠 MorphoQuest</h1>
+
+  <label for="languageSelect">Sprache / Language / Dil:</label>
+  <select id="languageSelect" onchange="changeLanguage(this.value)">
+    <option value="de">Deutsch</option>
+    <option value="en">English</option>
+    <option value="tr">Türkçe</option>
+  </select>
+
   <p id="word">Wort: git</p>
   <p id="meaning">Bedeutung: gehen</p>
 
-  <button onclick="addMorpheme('-iyor', 'Präsens')">-iyor</button>
-  <button onclick="addMorpheme('-um', '1. Person Singular')">-um</button>
-  <button onclick="addMorpheme('-me', 'Negation')">-me</button>
-  <button onclick="addMorpheme('-di', 'Vergangenheit')">-di</button>
-  <br><br>
-  <button onclick="reset()">Zurücksetzen</button>
+  <div id="buttons"></div>
+
+  <button onclick="reset()" id="resetBtn">Zurücksetzen</button>
 
   <script src="app.js"></script>
 </body>
